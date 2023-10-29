@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.2.2"
 
-gem "devise-jwt"
+gem "devise"
 gem "pundit"
 gem "interactor"
 gem "rails", "~> 7.1.1"
