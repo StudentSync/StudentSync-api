@@ -310,4 +310,18 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  config.api.configure do |api|
+    # expire token config
+    api.access_token.expires_in = 3.week
+    api.access_token.expires_in_infinite = ->(_resource_owner) { false }
+
+    # desable refresh token
+    api.refresh_token.enabled = false
+
+    # token config
+    api.authorization.key = 'Authorization'
+    api.authorization.scheme = 'Bearer'
+    api.authorization.location = :header
+  end
 end
