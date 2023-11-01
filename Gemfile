@@ -4,6 +4,7 @@ ruby "3.2.2"
 
 gem "devise"
 gem "pundit"
+gem "validators"
 gem "interactor"
 gem "rails", "~> 7.1.1"
 gem "pg", "~> 1.1"
@@ -18,9 +19,11 @@ group :development, :test do
   gem "rswag-specs"
   gem "factory_bot_rails"
   gem "ffaker"
+  gem "fuubar"
 end
 
 group :development do
   gem "rubocop"
+  gem "railroady"
 end
 
