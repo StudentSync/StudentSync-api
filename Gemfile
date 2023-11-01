@@ -10,11 +10,12 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
+gem "rswag"
 
 group :development, :test do
   gem "byebug"
   gem "rspec-rails"
-  gem "rswag"
+  gem "rswag-specs"
   gem "factory_bot"
   gem "ffaker"
 end
