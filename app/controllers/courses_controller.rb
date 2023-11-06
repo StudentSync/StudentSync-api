@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-    
+    before_action :authenticate_devise_api_token!
 
     def create
         result = Courses::Interactors::Create.call(course_params: course_params)
