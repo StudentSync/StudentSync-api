@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_05_233235) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_06_133012) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_05_233235) do
     t.index ["previous_refresh_token"], name: "index_devise_api_tokens_on_previous_refresh_token"
     t.index ["refresh_token"], name: "index_devise_api_tokens_on_refresh_token"
     t.index ["resource_owner_type", "resource_owner_id"], name: "index_devise_api_tokens_on_resource_owner"
+  end
+
+  create_table "professors", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "academic_degree"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_professors_on_user_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -60,6 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_05_233235) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "professors", "users"
   add_foreign_key "students", "courses"
   add_foreign_key "students", "users"
 end

@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   post "courses", to: "courses#create"
 
   post "students", to: "students#create"
+
+  post "professors", to: "professors#create"
 end
+ 
