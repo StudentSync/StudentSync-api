@@ -5,7 +5,7 @@ module Courses
         include Interactor
 
         def call
-            if course = Course.create(context.course_params)
+            if course = Course.create!(context.course_params)
                 context.course = course
             else
                 context.failure!("create_course.failure")

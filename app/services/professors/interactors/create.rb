@@ -4,7 +4,7 @@ module Professors
         include Interactor
         
         def call
-            if professor = Professor.create(context.professor_params)
+            if professor = Professor.create!(context.professor_params)
                 context.professor = professor
             else
                 context.failure!("create_professor.failure")
