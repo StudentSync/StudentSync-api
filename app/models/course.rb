@@ -1,3 +1,3 @@
 class Course < ApplicationRecord
-    validates :name, uniqueness: true
+    validates :name, uniqueness: true, presence: true
 end

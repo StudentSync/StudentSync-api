@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :course do
-    name { "MyString" }
+    name { FFaker::Lorem.word }
   end
 end

@@ -3,4 +3,6 @@ class Student < ApplicationRecord
   belongs_to :course
 
   validates :user, uniqueness: true
+  validates :name, presence: true
+  validates :semester, presence: true, length: { maximum: 1 }
 end
