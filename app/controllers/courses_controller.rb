@@ -11,6 +11,11 @@ class CoursesController < ApplicationController
         end
     end
     
+    def all
+        courses = Course.all
+        render json: courses
+    end
+
     private
 
     def course_params
