@@ -16,6 +16,8 @@ RSpec.describe 'User Tokens API', type: :request do
         required: ['email', 'password']
       }
 
+      request_body_example value: { email: FFaker::Internet.email, password: FFaker::Internet.password }, name: "sign_up_example", summary: "Sign Up example request"
+
       response '201', 'user signed up successfully' do
         run_test!
       end
@@ -54,6 +56,7 @@ RSpec.describe 'User Tokens API', type: :request do
   path '/users/tokens/sign_in' do
     let(:new_user) { create(:user) }
     post 'Sign in with email and password' do
+      tags 'Users Tokens'
       consumes 'application/json'
       parameter name: :user, in: :body, schema: {
         type: :object,
@@ -63,6 +66,8 @@ RSpec.describe 'User Tokens API', type: :request do
         },
         required: ['email', 'password']
       }
+
+      request_body_example value: { email: FFaker::Internet.email, password: FFaker::Internet.password }, name: "sign_in_example", summary: "Sign In example request"
 
       response '200', 'user signed in successfully' do
         
@@ -103,12 +108,13 @@ RSpec.describe 'User Tokens API', type: :request do
     end
 
     get 'Get info with bearer token' do
+      tags 'Users Tokens'
       consumes 'application/json'
       security [bearer_auth: []]
 
       parameter name: :Authorization, in: :header, type: :string, required: true,
                 description: 'Bearer Token'
-
+      
       response '200', 'retrieves user info' do
         let(:Authorization) { @token }
         run_test!
@@ -124,6 +130,5 @@ RSpec.describe 'User Tokens API', type: :request do
       end
     end
   end
-
 end
 

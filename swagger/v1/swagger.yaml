@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.1
 info:
-  title: API V1
+  title: StudentSync
   version: v1
 paths:
   "/users/tokens/sign_up":
@@ -28,6 +28,63 @@ paths:
               required:
               - email
               - password
+            examples:
+              sign_up_example:
+                summary: Sign Up example request
+                value:
+                  email: becky.kshlerin@dietrichwiza.biz
+                  password: BDufMDzL
+  "/users/tokens/sign_in":
+    post:
+      summary: Sign in with email and password
+      tags:
+      - Users Tokens
+      parameters: []
+      responses:
+        '200':
+          description: user signed in successfully
+        '400':
+          description: Email is invalid
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+            examples:
+              sign_in_example:
+                summary: Sign In example request
+                value:
+                  email: carline.kutch@hammesvandervort.us
+                  password: M8M9TsMe
+  "/users/tokens/info":
+    get:
+      summary: Get info with bearer token
+      tags:
+      - Users Tokens
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        description: Bearer Token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: retrieves user info
+        '401':
+          description: Revoked token
 servers:
 - url: http://localhost:3000
   variables:
