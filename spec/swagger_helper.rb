@@ -22,14 +22,6 @@ RSpec.configure do |config|
         version: 'v1'
       },
       paths: {},
-      securityDefinitions: {
-        Bearer: {
-          type: :bearer,
-          description: 'Bearer token',
-          name: 'Authorization',
-          in: :header
-        }
-      },
       servers: [
         {
           url: 'http://localhost:3000',
