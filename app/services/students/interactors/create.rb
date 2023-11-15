@@ -3,10 +3,12 @@ module Students
         class Create
         include Interactor
 
-        delegate :student_params, to: :context
+        delegate :student_params, :user, to: :context
 
         def call
-            if student = Student.create!(student_params)
+            student = Student.new(student_params)
+            student.user.id = user[:id]
+            if student.save!
                 context.student = student
             else
                 context.fail!(message: "create_student.failure")

@@ -8,10 +8,11 @@ module Users
             user = Devise::Api::ResourceOwnerService::SignUp.new(params: user_params.to_h,
                                                                 resource_class: User).call
             if user.success?
-                context.user = { user: {
-                    id: user.success.id,
+                context.user = {
+                    id: user.success.resource_owner_id,
                     token: user.success.access_token
-                }}
+                }
+                byebug
             else
                 if user_params[:password].length < 6
                     context.fail!(message: "Password is too short!")
@@ -22,7 +23,7 @@ module Users
         end
 
         def rollback
-            context.user.destroy
+            User.find(context.user[:id]).destroy
         end
 
         end
