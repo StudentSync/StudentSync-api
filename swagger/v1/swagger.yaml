@@ -1,0 +1,35 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/users/tokens/sign_up":
+    post:
+      summary: Sign up with email and password
+      tags:
+      - Users Tokens
+      parameters: []
+      responses:
+        '201':
+          description: user signed up successfully
+        '422':
+          description: Unprocessable Entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+servers:
+- url: http://localhost:3000
+  variables:
+    defaultHost:
+      default: www.example.com
