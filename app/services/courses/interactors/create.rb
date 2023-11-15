@@ -1,14 +1,15 @@
 module Courses
     module Interactors
         class Create
-
         include Interactor
 
+        delegate :course_params, to: :context
+
         def call
-            if course = Course.create!(context.course_params)
+            if course = Course.create!(course_params)
                 context.course = course
             else
-                context.failure!("create_course.failure")
+                context.fail!(message: "create_course.failure")
             end
         end
 

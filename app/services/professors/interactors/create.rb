@@ -3,11 +3,12 @@ module Professors
         class Create
         include Interactor
         
+        delegate :professor_params, to: :context
         def call
-            if professor = Professor.create!(context.professor_params)
+            if professor = Professor.create!(professor_params)
                 context.professor = professor
             else
-                context.failure!("create_professor.failure")
+                context.fail!(message: "create_professor.failure")
             end
         end
 
