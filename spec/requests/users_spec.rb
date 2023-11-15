@@ -103,28 +103,26 @@ RSpec.describe 'User Tokens API', type: :request do
 
   path '/users/tokens/info' do
     before do
-      post '/users/tokens/sign_up', :params => { email:FFaker::Internet.email, password:FFaker::Internet.password }
+      post '/users/tokens/sign_up', params: { email: FFaker::Internet.email, password: FFaker::Internet.password }
       @token = JSON.parse(response.body)["token"]
     end
-
+  
     get 'Get info with bearer token' do
       tags 'Users Tokens'
       consumes 'application/json'
-      security [bearer_auth: []]
+      security [Bearer: []]
+      parameter name: :Authorization, in: :header, type: :string, description: 'Bearer <token>', required: true
 
-      parameter name: :Authorization, in: :header, type: :string, required: true,
-                description: 'Bearer Token'
-      
       response '200', 'retrieves user info' do
-        let(:Authorization) { @token }
+        let(:Authorization) { "Bearer #{@token}" }
         run_test!
       end
-
+  
       response '401', 'Revoked token' do
         before do
-          post '/users/tokens/revoke', :headers => { 'Authorization' => "Bearer #{@token}" }
+          post '/users/tokens/revoke', headers: { 'Authorization' => "Bearer #{@token}" }
         end
-
+  
         let(:Authorization) { @token }
         run_test!
       end

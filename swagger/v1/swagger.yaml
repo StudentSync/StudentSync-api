@@ -32,8 +32,8 @@ paths:
               sign_up_example:
                 summary: Sign Up example request
                 value:
-                  email: becky.kshlerin@dietrichwiza.biz
-                  password: BDufMDzL
+                  email: shirley_kihn@boyermetz.name
+                  password: v4Q_1_HMQs
   "/users/tokens/sign_in":
     post:
       summary: Sign in with email and password
@@ -64,20 +64,20 @@ paths:
               sign_in_example:
                 summary: Sign In example request
                 value:
-                  email: carline.kutch@hammesvandervort.us
-                  password: M8M9TsMe
+                  email: so.wintheiser@prosacco.com
+                  password: 5iX8zS7um
   "/users/tokens/info":
     get:
       summary: Get info with bearer token
       tags:
       - Users Tokens
       security:
-      - bearer_auth: []
+      - Bearer: []
       parameters:
       - name: Authorization
         in: header
+        description: Bearer <token>
         required: true
-        description: Bearer Token
         schema:
           type: string
       responses:
@@ -85,6 +85,12 @@ paths:
           description: retrieves user info
         '401':
           description: Revoked token
+securityDefinitions:
+  Bearer:
+    type: bearer
+    description: Bearer token
+    name: Authorization
+    in: header
 servers:
 - url: http://localhost:3000
   variables:
