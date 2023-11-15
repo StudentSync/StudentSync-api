@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   it "is valid with valid attributes" do
     expect(user).to be_valid
@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
   end
 
   it "is not valid with a duplicate email" do
-    duplicate_email = FactoryBot.build(:user, email: user.email)
+    duplicate_email = build(:user, email: user.email)
     expect(duplicate_email).to_not be_valid
   end
 end

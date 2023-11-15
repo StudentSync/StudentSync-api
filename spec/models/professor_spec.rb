@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Professor, type: :model do
-  let(:professor) { FactoryBot.create(:professor) }
+  let(:professor) { create(:professor) }
 
   it "is valid with valid attributes" do
     expect(professor).to be_valid
@@ -18,7 +18,7 @@ RSpec.describe Professor, type: :model do
   end
 
   it "is not valid with a duplicate user" do
-    duplicate_user = FactoryBot.build(:professor, user: professor.user)
+    duplicate_user = build(:professor, user: professor.user)
 
     expect(duplicate_user).to_not be_valid
   end

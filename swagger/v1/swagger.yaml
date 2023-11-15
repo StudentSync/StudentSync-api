@@ -1,0 +1,98 @@
+---
+openapi: 3.0.1
+info:
+  title: StudentSync
+  version: v1
+paths:
+  "/users/tokens/sign_up":
+    post:
+      summary: Sign up with email and password
+      tags:
+      - Users Tokens
+      parameters: []
+      responses:
+        '201':
+          description: user signed up successfully
+        '422':
+          description: Unprocessable Entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+            examples:
+              sign_up_example:
+                summary: Sign Up example request
+                value:
+                  email: shirley_kihn@boyermetz.name
+                  password: v4Q_1_HMQs
+  "/users/tokens/sign_in":
+    post:
+      summary: Sign in with email and password
+      tags:
+      - Users Tokens
+      parameters: []
+      responses:
+        '200':
+          description: user signed in successfully
+        '400':
+          description: Email is invalid
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+            examples:
+              sign_in_example:
+                summary: Sign In example request
+                value:
+                  email: so.wintheiser@prosacco.com
+                  password: 5iX8zS7um
+  "/users/tokens/info":
+    get:
+      summary: Get info with bearer token
+      tags:
+      - Users Tokens
+      security:
+      - Bearer: []
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer <token>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: retrieves user info
+        '401':
+          description: Revoked token
+securityDefinitions:
+  Bearer:
+    type: bearer
+    description: Bearer token
+    name: Authorization
+    in: header
+servers:
+- url: http://localhost:3000
+  variables:
+    defaultHost:
+      default: www.example.com
