@@ -12,7 +12,6 @@ module Users
                     id: user.success.resource_owner_id,
                     token: user.success.access_token
                 }
-                byebug
             else
                 if user_params[:password].length < 6
                     context.fail!(message: "Password is too short!")
