@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for studentsync-api on 2023-11-15T22:03:56-03:00
+# fly.toml app configuration file generated for studentsync-api on 2023-11-15T22:34:32-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -8,9 +8,6 @@ primary_region = "gru"
 console_command = "/rails/bin/rails console"
 
 [build]
-
-[deploy]
-  release_command = "./bin/rails db:prepare"
 
 [http_service]
   internal_port = 3000
