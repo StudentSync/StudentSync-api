@@ -38,6 +38,8 @@ jobs:
         sudo apt-get install -y libpq-dev
         gem install bundler
         bundle install
+        curl -L https://fly.io/install.sh | sh
+        echo "$HOME/.fly/bin" >> $GITHUB_PATH
 
     - name: Set up database
       run: |
