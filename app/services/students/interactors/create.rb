@@ -7,7 +7,8 @@ module Students
 
         def call
             student = Student.new(student_params)
-            student.user.id = user[:id]
+            byebug
+            student.user_id = user[:id]
             if student.save!
                 context.student = student
             else
