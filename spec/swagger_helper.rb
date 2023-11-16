@@ -24,7 +24,7 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: 'http://localhost:3000',
+          url: "https://studentsync-api.fly.dev/",
           variables: {
             defaultHost: {
               default: 'www.example.com'
