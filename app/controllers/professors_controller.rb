@@ -2,10 +2,10 @@ class ProfessorsController < ApplicationController
     before_action :authenticate_devise_api_token!
 
     def create
-        result = Professors::Interactors::Create.call(professor_params: professor_params)
+        result = Professors::Organizers::Create.call(professor_params: professor_params, user_params: user_params)
 
         if result.success?
-            render json: result.professor
+            render json: { professor: result.professor, token: result.user[:token]}
         else
             render json: result.message
         end
