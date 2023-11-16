@@ -2,10 +2,13 @@ module Professors
     module Interactors
         class Create
         include Interactor
-        
-        delegate :professor_params, to: :context
+
+        delegate :professor_params, :user, to: :context
+
         def call
-            if professor = Professor.create!(professor_params)
+            professor = Professor.new(professor_params)
+            professor.user_id = user[:id]
+            if professor.save!
                 context.professor = professor
             else
                 context.fail!(message: "create_professor.failure")
@@ -15,6 +18,7 @@ module Professors
         def rollback
             context.professor.destroy
         end
+
         end
     end
 end
