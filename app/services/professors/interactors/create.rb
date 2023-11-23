@@ -18,7 +18,7 @@ module Professors
         def rollback
             context.professor.destroy
         end
-
+        
         end
     end
 end

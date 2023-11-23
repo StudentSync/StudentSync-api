@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   post "students", to: "students#create"
 
   post "professors", to: "professors#create"
+
+  post "groups", to: "groups#create"
 end
  
