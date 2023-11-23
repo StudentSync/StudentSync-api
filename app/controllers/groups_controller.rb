@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_devise_api_token!
+
   def create
     result = Groups::Interactors::Create.call(group_params: group_params)
 
