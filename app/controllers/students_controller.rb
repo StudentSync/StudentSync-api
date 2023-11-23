@@ -1,5 +1,4 @@
 class StudentsController < ApplicationController
-    before_action :authenticate_devise_api_token!
 
     def create
         result = Students::Organizers::Create.call(student_params: student_params, user_params: user_params)
