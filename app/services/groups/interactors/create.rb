@@ -7,7 +7,7 @@ module Groups
 
     def call
       
-      if group = User.create!(group_params)
+      if group = Group.create!(group_params)
         context.group = group
       else
         context.fail!(message: "create_group.failure")
