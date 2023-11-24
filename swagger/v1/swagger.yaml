@@ -32,8 +32,8 @@ paths:
               sign_up_example:
                 summary: Sign Up example request
                 value:
-                  email: kiara.kiehn@christiansenstracke.biz
-                  password: 0zV9Hg65OsOb
+                  email: fran.goldner@runolfsson.com
+                  password: _S8MIp8hNv29
   "/users/tokens/sign_in":
     post:
       summary: Sign in with email and password
@@ -64,8 +64,8 @@ paths:
               sign_in_example:
                 summary: Sign In example request
                 value:
-                  email: serafina_runolfsdottir@hodkiewicz.com
-                  password: Te2FOfqn
+                  email: hui@bahringerauer.biz
+                  password: Q6gdmLqCIdNSp
   "/users/tokens/info":
     get:
       summary: Get info with bearer token

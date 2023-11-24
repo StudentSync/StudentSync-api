@@ -12,7 +12,6 @@ jobs:
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
-      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
     services:
       postgres:
         image: postgres:11-alpine
@@ -38,8 +37,6 @@ jobs:
         sudo apt-get install -y libpq-dev
         gem install bundler
         bundle install
-        curl -L https://fly.io/install.sh | sh
-        echo "$HOME/.fly/bin" >> $GITHUB_PATH
 
     - name: Set up database
       run: |
@@ -48,7 +45,3 @@ jobs:
 
     - name: Run tests
       run: bundle exec rspec
-
-    - name: Deploy to Fly.io
-      if: success()
-      run: flyctl deploy
