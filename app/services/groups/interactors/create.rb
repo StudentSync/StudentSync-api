@@ -9,6 +9,7 @@ module Groups
       
       if group = Group.create!(group_params)
         context.group = group
+        context.group_users = group.group_users
       else
         context.fail!(message: "create_group.failure")
       end

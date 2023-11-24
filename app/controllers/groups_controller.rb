@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
     result = Groups::Interactors::Create.call(group_params: group_params)
 
     if result.success?
-      render json: result.group
+      render json: {group: result.group,members: result.group_users}
     else
       render json: result.message
     end
@@ -13,6 +13,6 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :user_id)
+    params.require(:group).permit(:name, :user_id, group_users_attributes: [:user_id ])
   end
 end
