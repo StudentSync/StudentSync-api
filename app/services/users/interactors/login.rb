@@ -9,24 +9,31 @@ module Users
                                                               resource_class: User).call
           if user.success?
             student = Student.find_by(user_id: user.success.resource_owner_id)
-            role = ''
-            name = ''
             if student
-              role = 'student'
-              name = student.name
+              user_attributes = {
+                user_id: student.user_id,
+                email: User.find(student.user_id).email,
+                name: student.name,
+                role: "student",
+                course: Course.find(student.course_id).name,
+                schedule_availability: student.schedule_availability,
+                semester: student.semester,
+              }
             else
               professor = Professor.find_by(user_id: user.success.resource_owner_id)
-              name = professor.name
-              role = 'professor'
+              user_attributes = {
+                user_id: professor.user_id,
+                email: User.find(professor.user_id).email,
+                name: professor.name,
+                academic_degree: professor.academic_degree,
+                description: professor.description,
+                schedule_availability: professor.schedule_availability,
+              }
             end
 
-
-
               context.user = {
-                  id: user.success.resource_owner_id,
+                  user_attributes: user_attributes,
                   token: user.success.access_token,
-                  role: role,
-                  name: name
               }
           else
               context.fail!(message: "Email or password incorrects!")
