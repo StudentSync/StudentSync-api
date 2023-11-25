@@ -3,7 +3,7 @@ module Students
         class Create
         include Interactor::Organizer
 
-        organize Users::Interactors::Create,
+        organize Users::Interactors::Register,
                  Students::Interactors::Create
         end
     end
