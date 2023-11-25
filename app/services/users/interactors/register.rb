@@ -1,6 +1,6 @@
 module Users
     module Interactors
-        class Create
+        class Register
         include Interactor
 
         delegate :user_params, to: :context

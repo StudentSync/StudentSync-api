@@ -3,7 +3,7 @@ module Professors
         class Create
         include Interactor::Organizer
 
-        organize Users::Interactors::Create,
+        organize Users::Interactors::Register,
                  Professors::Interactors::Create
         end
     end
