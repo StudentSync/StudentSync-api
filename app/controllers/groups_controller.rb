@@ -11,8 +11,14 @@ class GroupsController < ApplicationController
     end
   end
 
+  def get_user_groups
+    result = Groups::Interactors::GetUserGroups.call(user_id: params[:user_id])
+
+  end
+
   private
   def group_params
     params.require(:group).permit(:name, :user_id, group_users_attributes: [:user_id ])
   end
+
 end

@@ -9,7 +9,15 @@ module Students
             student = Student.new(student_params)
             student.user_id = user[:id]
             if student.save!
-                context.student = student
+                context.user_attributes = {
+                    user_id: student.user_id,
+                    email: User.find(student.user_id).email,
+                    name: student.name,
+                    role: "student",
+                    course: Course.find(student.course_id).name,
+                    schedule_availability: student.schedule_availability,
+                    semester: student.semester,
+                  }
             else
                 context.fail!(message: "create_student.failure")
             end

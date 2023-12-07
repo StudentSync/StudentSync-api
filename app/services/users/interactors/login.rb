@@ -25,6 +25,7 @@ module Users
                 user_id: professor.user_id,
                 email: User.find(professor.user_id).email,
                 name: professor.name,
+                role: "teacher",
                 academic_degree: professor.academic_degree,
                 description: professor.description,
                 schedule_availability: professor.schedule_availability,

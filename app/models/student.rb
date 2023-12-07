@@ -4,5 +4,5 @@ class Student < ApplicationRecord
 
   validates :user, uniqueness: true
   validates :name, presence: true
-  validates :semester, presence: true, length: { maximum: 1 }
+  validates :semester, presence: true
 end

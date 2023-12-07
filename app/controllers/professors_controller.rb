@@ -4,7 +4,7 @@ class ProfessorsController < ApplicationController
         result = Professors::Organizers::Create.call(professor_params: professor_params, user_params: user_params)
 
         if result.success?
-            render json: { professor: result.professor, token: result.user[:token]}
+            render json: { user_attributes: result.user_attributes, token: result.user[:token]}
         else
             render json: result.message
         end
@@ -13,6 +13,6 @@ class ProfessorsController < ApplicationController
     private
     
     def professor_params
-        params.require(:professor).permit(:user_id, :academic_degree, :description, :name)
+        params.require(:professor).permit(:user_id, :academic_degree, :description, :name, :schedule_availability)
     end
 end

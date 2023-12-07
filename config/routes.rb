@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   post "groups", to: "groups#create"
 
   post "login", to: "users#login"
+  post "verify_email", to: "users#verify_email"
 end
  
