@@ -11,7 +11,10 @@ Essas são as tecnologias utilizadas na API:
   - ![Rswag](https://img.shields.io/badge/rswag-%23CC342D.svg?style=for-the-badge&logo=rubygems&logoColor=white) -> Utilizado para documentação
   - ![FFaker](https://img.shields.io/badge/ffaker-%23CC342D.svg?style=for-the-badge&logo=rubygems&logoColor=white) -> Utilizado para geração de dados fake para testes
   - ![Factory_Bot](https://img.shields.io/badge/factory_bot-%23CC342D.svg?style=for-the-badge&logo=rubygems&logoColor=white) -> Utilizado para criação de fábricas para testes
-    
+
+## Diagrama do Banco de Dados
+
+![Diagrama](./POO.drawio-1-1_page-0001.jpg)
 ## Rotas 🛤️
 As notas rotas podem ser vistas através da documentação do Postman:
 - [Rotas](https://documenter.getpostman.com/view/27353559/2s9YXfbPDt)
