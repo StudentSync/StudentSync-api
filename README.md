@@ -18,3 +18,27 @@ As notas rotas podem ser vistas através da documentação do Postman:
   
 ## Rodando o Projeto
 
+- Caso possua o Ruby e o Postgresql, utilize os seguintes comandos abaixo:
+
+1. Clone o repositório:
+```
+git clone -b develop https://github.com/StudentSync/StudentSync-api
+cd StudentSync-api
+```
+2. Instale as dependências:
+
+```
+bundle install
+```
+
+3. Configure o banco de dados:
+
+```
+rails db:setup
+```
+
+4. Inicie o servidor:
+
+```
+rails s
+```
