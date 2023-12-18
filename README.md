@@ -1,7 +1,7 @@
 ## Tecnologias
 Essas são as tecnologias utilizadas na API:
-- ![PostgreSQL Badge](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=fff&style=for-the-badge)
-- ![Ruby on Rails Badge](https://img.shields.io/badge/Ruby%20on%20Rails-D30001?logo=rubyonrails&logoColor=fff&style=for-the-badge)
+- ![PostgreSQL Badge](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=fff&style=for-the-badge) -> Banco de dados relacional principal
+- ![Ruby on Rails Badge](https://img.shields.io/badge/Ruby%20on%20Rails-D30001?logo=rubyonrails&logoColor=fff&style=for-the-badge) -> Framework web
   - ![Interactors](https://img.shields.io/badge/interactors-%23CC342D.svg?style=for-the-badge&logo=rubygems&logoColor=white) -> Utilizado para modularização
   - ![Devise](https://img.shields.io/badge/devise-%23CC342D.svg?style=for-the-badge&logo=rubygems&logoColor=white) -> Utilizado para autenticação
   - ![Rspec](https://img.shields.io/badge/rspec-%23CC342D.svg?style=for-the-badge&logo=rubygems&logoColor=white) -> Utilizado para testes automatizados
