@@ -18,7 +18,7 @@ As notas rotas podem ser vistas através da documentação do Postman:
   
 ## Rodando o Projeto 🚀
 
-- Caso possua o Ruby e o Postgresql, utilize os seguintes comandos abaixo:
+- Caso possua o Ruby, o Rails e o Postgresql, utilize os seguintes comandos abaixo:
 
 1. Clone o repositório:
 ```
