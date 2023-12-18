@@ -10,7 +10,7 @@ Essas são as tecnologias utilizadas na API:
   - ![Factory_Bot](https://img.shields.io/badge/factory_bot-%23CC342D.svg?style=for-the-badge&logo=rubygems&logoColor=white)
 ## Rotas
 As notas rotas podem ser vistas através da documentação do Postman:
-- ![Rotas](https://documenter.getpostman.com/view/27353559/2s9YXfbPDt)
+- [Rotas](https://documenter.getpostman.com/view/27353559/2s9YXfbPDt)
   
 ## Rodando o Projeto
 
